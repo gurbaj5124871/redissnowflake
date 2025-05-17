@@ -24,14 +24,15 @@ THE SOFTWARE.
 #define __SNOWFLAKE__
 
 // the timestamp in milliseconds of the start of the custom epoch
-#define SNOWFLAKE_EPOCH 1388534400000 //Midnight January 1, 2014
+#define SNOWFLAKE_EPOCH 1735689600000 // Midnight January 1, 2025
 
 #define SNOWFLAKE_TIME_BITS 41
 #define SNOWFLAKE_REGIONID_BITS 4
 #define SNOWFLAKE_WORKERID_BITS 10
 #define SNOWFLAKE_SEQUENCE_BITS 8
 
-struct _snowflake_state {
+struct _snowflake_state
+{
     // milliseconds since SNOWFLAKE_EPOCH
     long int time;
     long int seq_max;
@@ -41,7 +42,8 @@ struct _snowflake_state {
     long int time_shift_bits;
     long int region_shift_bits;
     long int worker_shift_bits;
-} snowflake_global_state;
+};
+extern struct _snowflake_state snowflake_global_state;
 
 long int snowflake_id();
 int snowflake_init(int region_id, int worker_id);

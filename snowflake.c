@@ -90,3 +90,5 @@ int snowflake_init(int region_id, int worker_id) {
     app_stats.worker_id                 = worker_id;
     return 1;
 }
+
+struct _snowflake_state snowflake_global_state;
